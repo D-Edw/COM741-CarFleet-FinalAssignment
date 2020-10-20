@@ -1,0 +1,64 @@
+@model IList<Vehicle>
+
+@{
+    ViewData["Title"] = "Vehicle List";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Vehicles</li>
+    </ol>
+</nav>
+
+<h3>Vehicle List</h3>
+
+<div class="mt-4 mb-4">
+
+   <!--action link button to navigate to Create Action-->
+   <a asp-action="Create" class="btn btn-primary">Add Vehicle</a>
+   </div>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>@Html.ActionLink("Make", "Index", new { sortOrder = ViewBag.MakeSortParm })</th>
+            <th>Model</th>
+            <th>Registration No.</th>
+            <th>Colour</th>
+            <th>@Html.ActionLink("Date of Registration", "Index", new { sortOrder = ViewBag.DateSortParm })</th>
+            <th>Age of Vehicle</th>
+            <th>Transmission</th>
+            <th>CO2 Rating</th>
+            <th>@Html.ActionLink("Fuel", "Index", new { sortOrder = ViewBag.FuelSortParm })</th>
+            <th>Body Type</th>
+            <th>No. of Doors</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var v in Model) {
+            <tr>
+                <td>@v.Id</td>
+                <td>@v.Make</td>
+                <td>@v.Model</td>
+                <td>@v.Reg</td>
+                <td>@v.Colour</td>
+                <td>@v.DateOfReg</td>
+                <td>@v.AgeOfVehicle</td>
+                <td>@v.Transmission</td>
+                <td>@v.CO2Rating</td>
+                <td>@v.Fuel</td>
+                <td>@v.BodyType</td>
+                <td>@v.NoOfDoors</td>
+                <td><a asp-action="Details" asp-route-id=@v.Id>View</a>
+                <a asp-action="Edit" asp-route-id=@v.Id>Edit</a>
+                <a asp-action="Delete" asp-route-id=@v.Id>Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+@model ServiceViewModel
+
+@{
+    ViewData["Title"] = "Delete Service";
+}
+
+<h3 class="mt-4 mb-4">Delete Service</h3>
+
+<dl class="row">
+    
+    <dt class="col-sm-3">Service ID</dt>
+    <dd class="col-sm-9">@Model.Id</dd>
+
+    <dt class="col-sm-3">Mechanic</dt>
+    <dd class="col-sm-9">@Model.ServiceName</dd>
+
+    <dt class="col-sm-3">Date of Service</dt>
+    <dd class="col-sm-9">@Model.DateOfService</dd>
+
+    <dt class="col-sm-3">Mileage</dt>
+    <dd class="col-sm-9">@Model.Mileage</dd>
+
+    <dt class="col-sm-3">Service Cost</dt>
+    <dd class="col-sm-9">@Model.ServiceCost</dd>
+
+    <dt class="col-sm-3">Service Details</dt>
+    <dd class="col-sm-9">@Model.WorkDone</dd>
+    
+
+</dl>
+
+<form asp-action="DeleteServiceConfirm" asp-route-id="@Model.Id" asp-route-vehicleId="@Model.VehicleId" method="POST">
+        
+    <div class="form-group">
+        <input type="submit" value="Delete Service" class="btn btn-primary" />
+        <a class="btn btn-secondary" asp-action="Details" asp-route-id="@Model.Id" asp-route-vehicleId="@Model.VehicleId" >Cancel</a>
+    </div>
+</form>

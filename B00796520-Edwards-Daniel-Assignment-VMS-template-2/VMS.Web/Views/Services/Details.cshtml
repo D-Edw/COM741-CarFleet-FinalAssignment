@@ -1,0 +1,48 @@
+@model Service
+
+@{
+    ViewData["Title"] = "Service Details";
+}
+
+ <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+         <li class="breadcrumb-item" aria-current="page">
+            <a asp-controller="Services" asp-action="Index">Services</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Details</li>
+    </ol>
+</nav>
+
+<h3 class="mt=4 mb-4">Service Details</h3>
+
+<dl class="row">
+    
+    <dt class="col-sm-3">Service ID</dt>
+    <dd class="col-sm-9">@Model.Id</dd>
+
+    <dt class="col-sm-3">Mechanic</dt>
+    <dd class="col-sm-9">@Model.ServiceName</dd>
+
+    <dt class="col-sm-3">Date of Service</dt>
+    <dd class="col-sm-9">@Model.DateOfService</dd>
+
+    <dt class="col-sm-3">Mileage</dt>
+    <dd class="col-sm-9">@Model.Mileage</dd>
+
+    <dt class="col-sm-3">Service Cost</dt>
+    <dd class="col-sm-9">@Model.ServiceCost</dd>
+
+    <dt class="col-sm-3">Service Details</dt>
+    <dd class="col-sm-9">@Model.WorkDone</dd>
+    
+
+</dl>
+
+<div>
+    
+    <a asp-action="Index" class="btn btn-primary btn-sm">Service List</a>
+
+</div>

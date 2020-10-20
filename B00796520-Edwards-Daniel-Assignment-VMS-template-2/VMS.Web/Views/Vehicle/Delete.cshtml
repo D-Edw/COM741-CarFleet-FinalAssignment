@@ -1,0 +1,69 @@
+@model Vehicle
+
+@{
+    ViewData["Title"] = "Delete Vehicle";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+         <li class="breadcrumb-item" aria-current="page">
+            <a asp-controller="Vehicle" asp-action="Index">Vehicles</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Delete</li>
+    </ol>
+</nav>
+
+<h3 class="mt-4 mb-4">Delete Vehicle</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">ID</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+    
+        <dt class="col-sm-3">Make</dt>
+        <dd class="col-sm-9">@Model.Make</dd>
+    
+        <dt class="col-sm-3">Model</dt>
+        <dd class="col-sm-9">@Model.Model</dd>
+    
+        <dt class="col-sm-3">Registration No.</dt>
+        <dd class="col-sm-9">@Model.Reg</dd>
+
+        <dt class="col-sm-3">Colour</dt>
+        <dd class="col-sm-9">@Model.Colour</dd>
+
+        <dt class="col-sm-3">Date of Registration</dt>
+        <dd class="col-sm-9">@Model.DateOfReg</dd>
+
+        <dt class="col-sm-3">Age of Vehicle</dt>
+        <dd class="col-sm-9">@Model.AgeOfVehicle</dd>
+
+        <dt class="col-sm-3">Transmission</dt>
+        <dd class="col-sm-9">@Model.Transmission</dd>
+
+        <dt class="col-sm-3">CO2 Rating</dt>
+        <dd class="col-sm-9">@Model.CO2Rating</dd>
+
+        <dt class="col-sm-3">Fuel</dt>
+        <dd class="col-sm-9">@Model.Fuel</dd>
+
+        <dt class="col-sm-3">Body Type</dt>
+        <dd class="col-sm-9">@Model.BodyType</dd>
+
+        <dt class="col-sm-3">No. of Doors</dt>
+        <dd class="col-sm-9">@Model.NoOfDoors</dd>
+    </dl>
+
+  <form asp-action="DeleteConfirm" method="POST">
+        <input type="hidden" asp-for="Id" class="form-control"/>
+
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-primary" />
+            <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+        </div>
+    </form>
+
+</div>

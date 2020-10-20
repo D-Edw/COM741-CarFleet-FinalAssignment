@@ -1,0 +1,21 @@
+<table class="table table-sm">
+    <thead>
+        <tr>           
+            <th>Date of Service</th>
+            <th>Service Cost</th>  
+            <th>Service Details</th>
+            <th>Actions</th>       
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var s in Model.Services) {
+            <tr>              
+                <td>@s.DateOfService</td>
+                <td>@s.ServiceCost</td>  
+                <td>@s.WorkDone </td>
+                 <td><a asp-action="DeleteService" asp-route-id=@s.Id>Delete</a></td>               
+            </tr>   
+        }
+    </tbody>
+</table>

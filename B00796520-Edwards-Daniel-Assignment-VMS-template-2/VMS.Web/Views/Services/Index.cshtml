@@ -1,0 +1,48 @@
+@model IList<Service>
+
+  @{
+    ViewData["Title"] = "Service List";
+}
+
+      <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Services</li>
+    </ol>
+</nav>
+
+<h3>Services List</h3>
+
+<div class="mt-4 mb-4">
+   <!-- add an action link styled as a button to navigate to Create Action -->
+   <a asp-action="Create" class="btn btn-primary btn-sm">Add New Service</a>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+         <th>Service ID</th>
+         <th>Registration No.</th>
+         <th>Mechanic</th>           
+         <th>Mileage</th>
+         <th>Cost</th>
+         <th>Date of Service</th>
+         <th>Service Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach(var s in Model) {
+          <tr>
+            <td>@s.Id</td>
+            <td>@s.Vehicle.Reg</td> 
+            <td>@s.ServiceName</td>
+            <td>@s.Mileage</td>
+            <td>@s.ServiceCost</td>
+            <td>@s.DateOfService</td>
+            <td><a asp-action="Details" asp-route-id=@s.Id>View</a></td>
+         </tr>
+      }
+    </tbody>
+</table>

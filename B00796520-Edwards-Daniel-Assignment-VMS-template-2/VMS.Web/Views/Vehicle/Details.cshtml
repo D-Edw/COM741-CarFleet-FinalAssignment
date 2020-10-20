@@ -1,0 +1,81 @@
+@model Vehicle
+
+@{
+    ViewData["Title"] = "Vehicle Details";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+         <li class="breadcrumb-item" aria-current="page">
+            <a asp-controller="Vehicle" asp-action="Index">Vehicles</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Details</li>
+    </ol>
+</nav>
+
+<h3 class="mt=4 mb-4">Vehicle Details</h3>
+
+<div class="row">
+    <div class="col-sm-6">
+        <dl class="row">
+            <dt class="col-sm-6">ID</dt>
+            <dd class="col-sm-6">@Model.Id</dd>
+    
+            <dt class="col-sm-6">Make</dt>
+            <dd class="col-sm-6">@Model.Make</dd>
+    
+            <dt class="col-sm-6">Model</dt>
+            <dd class="col-sm-6">@Model.Model</dd>
+    
+            <dt class="col-sm-6">Registration No.</dt>
+            <dd class="col-sm-6">@Model.Reg</dd>
+
+            <dt class="col-sm-6">Colour</dt>
+            <dd class="col-sm-6">@Model.Colour</dd>
+
+            <dt class="col-sm-6">Date of Registration</dt>
+            <dd class="col-sm-6">@Model.DateOfReg</dd>
+
+            <dt class="col-sm-6">Age of Vehicle</dt>
+            <dd class="col-sm-6">@Model.AgeOfVehicle</dd>
+
+            <dt class="col-sm-6">Transmission</dt>
+            <dd class="col-sm-6">@Model.Transmission</dd>
+
+            <dt class="col-sm-6">CO2 Rating</dt>
+            <dd class="col-sm-6">@Model.CO2Rating</dd>
+
+            <dt class="col-sm-6">Fuel</dt>
+            <dd class="col-sm-6">@Model.Fuel</dd>
+
+            <dt class="col-sm-6">Body Type</dt>
+            <dd class="col-sm-6">@Model.BodyType</dd>
+
+            <dt class="col-sm-6">No. of Doors</dt>
+            <dd class="col-sm-6">@Model.NoOfDoors</dd>
+
+        </dl>
+
+    </div>
+
+    <div class="col-sm-6">
+        <img src = "@Model.ImageUrl" class="img-fluid"/>
+    </div>
+
+</div>
+
+<div>
+    <!--Buttons-->
+    <a asp-action="Index" class="btn btn-secondary btn-sm">Vehicle List</a>
+    
+    <a asp-action="Edit" asp-route-id=@Model.Id class="btn btn-secondary btn-sm">Edit</a> 
+
+    <a asp-action="CreateService" asp-route-id=@Model.Id class="btn btn-primary btn-sm">Add Service</a> 
+
+</div>
+
+<!--Partial view of services for the selected vehicle-->
+<partial name="_Services"/>
